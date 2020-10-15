@@ -37,7 +37,14 @@ app.post('/sms', (req, res) => {
   res.end(twiml.toString());
 
 //	Lets send some stuff to Appian
-//
+
+axios.request(options, function (error, response, body) {
+    if (error) {
+        //do something
+    }
+    console.log(body)//do something with response
+})
+
 
 });
 
