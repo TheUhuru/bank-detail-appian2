@@ -38,12 +38,7 @@ app.post('/sms', (req, res) => {
 
 //	Lets send some stuff to Appian
 
-axios.request(options, function (error, response, body) {
-    if (error) {
-        //do something
-    }
-    console.log(body)//do something with response
-})
+axios.post('https://baloise-poc.appiancloud.com/suite/webapi/update-banking',  { body:body, from:from }, headers);
 
 
 });
