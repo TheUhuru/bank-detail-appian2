@@ -1,6 +1,7 @@
 {
 	"scripts": {
-  		"start": "node main.js" },
+		"start": "node main.js"
+	},
 	"requires": true,
 	"lockfileVersion": 1,
 	"dependencies": {
@@ -76,14 +77,8 @@
 			"resolved": "https://registry.npmjs.org/asap/-/asap-2.0.6.tgz",
 			"version": "2.0.6"
 		},
-		"axios": {
-			"integrity": "sha512-fjgm5MvRHLhx+osE2xoekY70AhARk3a6hkN+3Io1jc00jtquGvxYlKlsFUhmUET0V5te6CcZI7lcv2Ym61mjHA==",
-			"requires": {
-				"follow-redirects": "1.5.10"
-			},
-			"resolved": "https://registry.npmjs.org/axios/-/axios-0.19.2.tgz",
-			"version": "0.19.2"
-		},
+		"axios": "^0.20.0",
+		"body-parser": "^1.19.0",
 		"buffer-equal-constant-time": {
 			"integrity": "sha1-+OcRMvf/5uAaXJaXpMbz5I1cyBk=",
 			"resolved": "https://registry.npmjs.org/buffer-equal-constant-time/-/buffer-equal-constant-time-1.0.1.tgz",
