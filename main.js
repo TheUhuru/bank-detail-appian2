@@ -17,12 +17,33 @@ app.post('/sms', (req, res) => {
   console.log(`Incoming message from ${req.body.From}: ${req.body.Body}`);
   var body = req.body.Body;
   var phone = req.body.Form;
-  
+
   twiml.message('The Robots are coming! Head for the hills!');
 
   res.writeHead(200, {'Content-Type': 'text/xml'});
   res.end(twiml.toString());
 });
+
+//	Lets send some stuff to Appian
+//
+var headers = {
+    'Content-Type': 'application/json',
+    'Appian-API-Key': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIwN2M1N2IzZi04NjlhLTQyNDEtOTFiZS0zMmNkOTk0MWYwZjQifQ.XyFoBX1PsAPjEIf-TZ_5oy7pV195b7RQMCvt4LOtp9k'
+
+}
+var options = {
+    url: "https://baloise-poc.appiancloud.com/suite/webapi/update-banking" ,
+    method: 'POST',
+    headers: headers,
+    json: true,
+    body: { body:body, from:from }
+}
+request(options, function (error, response, body) {
+    if (error) {
+        //do something
+    }
+    console.log(body)//do something with response
+})
 
 //http.createServer(app).listen(1337, () => {
 //  console.log('Express server listening on port 1337');
