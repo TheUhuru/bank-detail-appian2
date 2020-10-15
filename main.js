@@ -18,7 +18,7 @@ app.post('/sms', (req, res) => {
   var body = req.body.Body;
   var phone = req.body.Form;
 
-  twiml.message('The Robots are coming! Head for the hills!');
+  twiml.message('Thanks for contacting Baloise Insurance');
 
   res.writeHead(200, {'Content-Type': 'text/xml'});
   res.end(twiml.toString());
