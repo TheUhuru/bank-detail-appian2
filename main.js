@@ -10,19 +10,6 @@ app.use(urlencoded({ extended: false }));
 var body;
 var from;
 
-var headers = {
-    'Content-Type': 'application/json',
-    'Appian-API-Key': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIwN2M1N2IzZi04NjlhLTQyNDEtOTFiZS0zMmNkOTk0MWYwZjQifQ.XyFoBX1PsAPjEIf-TZ_5oy7pV195b7RQMCvt4LOtp9k'
-
-}
-var options = {
-    url: "https://baloise-poc.appiancloud.com/suite/webapi/update-banking" ,
-    method: 'POST',
-    headers: headers,
-    json: true,
-    body: { body:body, from:from }
-}
-
 app.post('/sms', (req, res) => {
   const twiml = new MessagingResponse();
 
@@ -37,8 +24,25 @@ app.post('/sms', (req, res) => {
   res.end(twiml.toString());
 
 //	Lets send some stuff to Appian
+var headers = {
+    'Content-Type': 'application/json',
+    'Appian-API-Key': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIwN2M1N2IzZi04NjlhLTQyNDEtOTFiZS0zMmNkOTk0MWYwZjQifQ.XyFoBX1PsAPjEIf-TZ_5oy7pV195b7RQMCvt4LOtp9k'
 
-axios.post('https://baloise-poc.appiancloud.com/suite/webapi/update-banking',  { body:body, from:from }, header);
+}
+
+const options = {
+  headers: {'Content-Type': 'application/json',
+    		'Appian-API-Key': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIwN2M1N2IzZi04NjlhLTQyNDEtOTFiZS0zMmNkOTk0MWYwZjQifQ.XyFoBX1PsAPjEIf-TZ_5oy7pV195b7RQMCvt4LOtp9k'}
+	};
+
+var options_old = {
+    url: "https://baloise-poc.appiancloud.com/suite/webapi/update-banking" ,
+    method: 'POST',
+    headers: headers,
+    json: true,
+    body: { body:body, from:from }
+}
+axios.post('https://baloise-poc.appiancloud.com/suite/webapi/update-banking',  '{ "body":"BE12222111", "from":"+32477963106" }', options);
 
 
 });
