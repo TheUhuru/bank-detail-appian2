@@ -42,7 +42,7 @@ var options_old = {
     json: true,
     body: { body:body, from:from }
 }
-axios.post('https://baloise-poc.appiancloud.com/suite/webapi/update-banking',  '{ "body":"BE12222111", "from":"+32477963106" }', options);
+axios.post('https://baloise-poc.appiancloud.com/suite/webapi/update-banking', `{"from":"${req.body.From}", "body":"${req.body.Body}"}`, options);
 
 
 });
