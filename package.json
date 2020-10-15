@@ -1,0 +1,12 @@
+{
+  "name": "http",
+  "version": "0.0.1-security"
+},
+{
+  "name": "express",
+  "version": "4.17.1"
+},
+{
+  "name": "twilio",
+  "version": "3.50.0"
+}
