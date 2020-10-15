@@ -1,4 +1,6 @@
 {
+	"scripts": {
+  		"start": "node main.js" },
 	"requires": true,
 	"lockfileVersion": 1,
 	"dependencies": {
